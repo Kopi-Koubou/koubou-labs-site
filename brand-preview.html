@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koubou Labs — Final Brand Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:wght@500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#F2EAD3; --surface:#fff; --text:#2C2420; --muted:#6B6259; --accent:#C4654A; --accentDeep:#A84832; }
+    *{box-sizing:border-box} body{margin:0;padding:48px 20px;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif}
+    .wrap{max-width:980px;margin:0 auto} h1{font-family:'Instrument Serif',serif;font-size:52px;line-height:1.05;margin:0 0 8px}
+    .sub{color:var(--muted);margin-bottom:28px}.card{background:var(--surface);border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:22px;margin-bottom:18px}
+    .title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.sw{border:1px solid rgba(0,0,0,.07);border-radius:10px;overflow:hidden;background:#fff}
+    .chip{height:70px}.meta{padding:10px}.name{font-size:12px;font-weight:500}.hex{font-size:11px;color:var(--muted)}
+    .logo{display:flex;flex-direction:column;align-items:center;gap:6px}.logo-mark{font-family:serif;color:var(--accent);font-size:44px;line-height:1}.logo-word{font-family:'Cormorant Garamond',serif;font-size:38px;line-height:1.05;text-align:center}
+    .pill{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:3px;background:var(--accent);color:#fff;font-family:serif;font-size:22px}
+    .typo-row{display:grid;grid-template-columns:170px 1fr;gap:10px;align-items:center;padding:8px 0;border-top:1px solid rgba(0,0,0,.06)}
+    .typo-row:first-of-type{border-top:none}.lbl{font-size:12px;color:var(--muted)}
+    @media(max-width:760px){.grid{grid-template-columns:1fr 1fr}.logo-word{font-size:30px}.typo-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Koubou Labs — Final Brand</h1>
+    <div class="sub">Locked direction: current brand palette + current typography vibe, with final logo option.</div>
+
+    <div class="card">
+      <div class="title">Final Logo (Stacked)</div>
+      <div class="logo" style="margin-bottom:12px">
+        <span class="logo-mark">工</span>
+        <span class="logo-word">Koubou Labs</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;justify-content:center">
+        <span class="pill">工</span>
+        <span style="font-size:13px;color:var(--muted)">Favicon variant (sharper corners)</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">Color Palette (Current Option)</div>
+      <div class="grid">
+        <div class="sw"><div class="chip" style="background:#F2EAD3"></div><div class="meta"><div class="name">Parchment</div><div class="hex">#F2EAD3</div></div></div>
+        <div class="sw"><div class="chip" style="background:#2C2420"></div><div class="meta"><div class="name">Warm Black</div><div class="hex">#2C2420</div></div></div>
+        <div class="sw"><div class="chip" style="background:#6B6259"></div><div class="meta"><div class="name">Warm Gray</div><div class="hex">#6B6259</div></div></div>
+        <div class="sw"><div class="chip" style="background:#C4654A"></div><div class="meta"><div class="name">Terracotta</div><div class="hex">#C4654A</div></div></div>
+        <div class="sw"><div class="chip" style="background:#A84832"></div><div class="meta"><div class="name">Terracotta Deep</div><div class="hex">#A84832</div></div></div>
+        <div class="sw"><div class="chip" style="background:#B87333"></div><div class="meta"><div class="name">Copper</div><div class="hex">#B87333</div></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">Typography</div>
+      <div class="typo-row"><div class="lbl">Headings</div><div style="font-family:'Instrument Serif',serif;font-size:34px">Instrument Serif</div></div>
+      <div class="typo-row"><div class="lbl">Body</div><div style="font-family:'DM Sans',sans-serif;font-size:18px">DM Sans</div></div>
+      <div class="typo-row"><div class="lbl">Logo Wordmark</div><div style="font-family:'Cormorant Garamond',serif;font-size:34px">Cormorant Garamond</div></div>
+    </div>
+  </div>
+</body>
+</html>
