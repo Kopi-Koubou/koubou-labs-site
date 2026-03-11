@@ -60,8 +60,9 @@ src/
 │   ├── Portfolio.tsx
 │   ├── ProjectCard.tsx
 │   ├── About.tsx
-│   ├── Contact.tsx
-│   └── Footer.tsx
+│   └── Contact.tsx
+├── hooks/
+│   └── useScrollReveal.ts
 ├── data/
 │   └── projects.ts
 ├── App.tsx
@@ -76,10 +77,12 @@ Edit `src/data/projects.ts`:
 ```typescript
 export const projects: Project[] = [
   {
+    slug: 'tamago',
     name: 'Tamago',
-    description: 'A daily fitness tracker that actually sticks.',
-    status: 'live',
-    url: 'https://tamago.app',
+    tagline: 'Duolingo for Cooking',
+    description: 'Voice-guided cooking app...',
+    category: 'iOS App',
+    status: 'coming-soon',
   },
   // Add new projects here
 ]

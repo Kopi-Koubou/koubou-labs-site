@@ -1,5 +1,5 @@
 {
-  "name": "koubou-vite-scaffold",
+  "name": "koubou-labs-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.2.1",
-    "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
