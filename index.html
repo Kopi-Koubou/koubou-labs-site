@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koubou Labs — We build products people actually use</title>
+    <meta name="description" content="A product studio in Singapore crafting thoughtful software at the intersection of design and technology. Less software, more soul.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Koubou Labs — We build products people actually use">
+    <meta property="og:description" content="A product studio in Singapore crafting thoughtful software. Less software, more soul.">
+    <meta property="og:url" content="https://kouboulabs.com">
+    <meta property="og:site_name" content="Koubou Labs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Koubou Labs — Products people actually use">
+    <meta name="twitter:description" content="A product studio in Singapore. Less software, more soul.">
+
+    <!-- Favicon + Theme -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>工</text></svg>">
+    <meta name="theme-color" content="#F2EAD3">
+    <link rel="canonical" href="https://kouboulabs.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,6 +274,7 @@
                 <a href="#about" class="text-sm text-warm-gray hover:text-terracotta transition-colors duration-300 font-light">About</a>
                 <a href="#contact" class="text-sm text-terracotta-deep font-medium hover:text-terracotta transition-colors duration-300">Say hello</a>
             </div>
+            <a href="#contact" class="sm:hidden text-sm text-terracotta-deep font-medium hover:text-terracotta transition-colors duration-300">Say hello</a>
         </div>
     </nav>
 
@@ -264,6 +285,29 @@
             <div class="reveal reveal-fade delay-2">
                 <span class="section-number uppercase tracking-widest">Singapore</span>
             </div>
+            <!-- Workshop tools SVG -->
+            <div class="my-8 opacity-60 reveal reveal-scale delay-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" fill="none" class="w-full max-w-sm mx-auto" style="height: 120px;">
+                  <g stroke="#C4654A" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="80" y1="30" x2="68" y2="75"/>
+                    <line x1="80" y1="30" x2="92" y2="75"/>
+                    <circle cx="80" cy="30" r="2.5" fill="#C4654A"/>
+                  </g>
+                  <g stroke="#B87333" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="150" y1="35" x2="150" y2="100"/>
+                    <rect x="138" y="28" width="24" height="10" rx="1.5" stroke="#B87333" fill="none"/>
+                  </g>
+                  <g stroke="#8B7D6B" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="220" y1="32" x2="212" y2="95"/>
+                    <path d="M209 95 L212 106 L215 95" fill="none"/>
+                  </g>
+                  <circle cx="45" cy="55" r="1.5" fill="#C4654A" opacity="0.3"/>
+                  <circle cx="280" cy="65" r="1.2" fill="#B87333" opacity="0.25"/>
+                  <circle cx="265" cy="105" r="1.5" fill="#8B7D6B" opacity="0.2"/>
+                  <path d="M70 90 Q150 120 230 90" stroke="#8B7D6B" stroke-width="0.75" stroke-opacity="0.2" fill="none"/>
+                </svg>
+            </div>
+            
             <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] mt-6 mb-8 reveal reveal-up delay-3">
                 We build products<br>
                 <span class="italic text-terracotta">people actually use</span>
@@ -344,20 +388,46 @@
                 <div class="grid md:grid-cols-2 gap-0">
                     <!-- Project visual -->
                     <div class="relative bg-gradient-to-br from-terracotta/10 via-copper/5 to-parchment p-10 sm:p-14 flex items-center justify-center min-h-[320px]">
-                        <!-- Abstract app representation -->
-                        <div class="relative">
-                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-white/60 backdrop-blur-sm shadow-lg border border-copper/10 flex flex-col items-center justify-center p-6 relative overflow-hidden">
-                                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terracotta via-copper to-terracotta-deep"></div>
-                                <svg class="w-12 h-12 text-terracotta mb-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                <span class="font-serif text-2xl text-warm-black">tamago</span>
-                                <span class="text-xs text-warm-gray mt-1 font-light tracking-wider uppercase">Voice-guided cooking</span>
-                            </div>
-                            <!-- Floating accent elements -->
-                            <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-terracotta/10 border border-terracotta/20"></div>
-                            <div class="absolute -bottom-2 -left-4 w-6 h-6 rounded-full bg-copper/10 border border-copper/20"></div>
-                        </div>
+                        <!-- Phone mockup SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 520" fill="none" class="w-48 sm:w-56 drop-shadow-2xl">
+                          <defs>
+                            <linearGradient id="screenGrad" x1="0" y1="0" x2="0.3" y2="1">
+                              <stop offset="0%" stop-color="#C4654A" stop-opacity="0.12"/>
+                              <stop offset="50%" stop-color="#B87333" stop-opacity="0.15"/>
+                              <stop offset="100%" stop-color="#8B7D6B" stop-opacity="0.1"/>
+                            </linearGradient>
+                            <linearGradient id="frameGrad" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stop-color="#4A423C"/>
+                              <stop offset="100%" stop-color="#2C2420"/>
+                            </linearGradient>
+                          </defs>
+                          <!-- Phone body -->
+                          <rect x="6" y="6" width="268" height="508" rx="40" stroke="url(#frameGrad)" stroke-width="6" fill="none"/>
+                          <!-- Screen -->
+                          <rect x="16" y="16" width="248" height="488" rx="30" fill="url(#screenGrad)"/>
+                          <!-- Dynamic Island -->
+                          <rect x="102" y="28" width="76" height="20" rx="10" fill="#2C2420"/>
+                          <!-- Tamago content -->
+                          <g opacity="0.6">
+                            <!-- Egg icon -->
+                            <ellipse cx="140" cy="110" rx="22" ry="28" stroke="#C4654A" stroke-width="1.5" fill="none"/>
+                            <text x="140" y="116" text-anchor="middle" font-size="16" fill="#C4654A" opacity="0.5">🥚</text>
+                            <!-- Content lines -->
+                            <rect x="50" y="160" width="180" height="5" rx="2.5" fill="#C4654A" opacity="0.12"/>
+                            <rect x="70" y="175" width="140" height="5" rx="2.5" fill="#B87333" opacity="0.1"/>
+                            <!-- Card -->
+                            <rect x="40" y="210" width="200" height="90" rx="12" stroke="#B87333" stroke-width="0.75" fill="#B87333" fill-opacity="0.04"/>
+                            <rect x="55" y="228" width="110" height="4" rx="2" fill="#B87333" opacity="0.15"/>
+                            <rect x="55" y="242" width="75" height="4" rx="2" fill="#8B7D6B" opacity="0.1"/>
+                            <rect x="55" y="268" width="80" height="20" rx="8" fill="#C4654A" fill-opacity="0.1"/>
+                            <!-- Bottom nav -->
+                            <circle cx="100" cy="470" r="3.5" fill="#8B7D6B" opacity="0.15"/>
+                            <circle cx="140" cy="470" r="3.5" fill="#C4654A" opacity="0.3"/>
+                            <circle cx="180" cy="470" r="3.5" fill="#8B7D6B" opacity="0.15"/>
+                          </g>
+                          <!-- Home indicator -->
+                          <rect x="100" y="488" width="80" height="3.5" rx="1.75" fill="#2C2420" opacity="0.3"/>
+                        </svg>
                     </div>
 
                     <!-- Project details -->
