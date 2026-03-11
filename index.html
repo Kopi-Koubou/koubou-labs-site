@@ -1,57 +1,518 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Koubou Labs — We build products that matter</title>
-    <meta name="description" content="A studio crafting thoughtful software at the intersection of design and technology." />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Koubou Labs" />
-    <meta property="og:description" content="We build products that matter." />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:url" content="https://kouboulabs.com" />
-    <meta property="og:type" content="website" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Koubou Labs" />
-    <meta name="twitter:description" content="We build products that matter." />
-    <meta name="twitter:image" content="/og-image.png" />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://kouboulabs.com" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Koubou Labs",
-        "url": "https://kouboulabs.com",
-        "description": "A studio crafting thoughtful software at the intersection of design and technology.",
-        "email": "hello@kouboulabs.com",
-        "location": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "SG"
-          }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koubou Labs — We build products people actually use</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#C4654A',
+                        'terracotta-deep': '#A84832',
+                        parchment: '#F2EAD3',
+                        'parchment-light': '#F8F4E8',
+                        copper: '#B87333',
+                        'copper-light': '#D4956B',
+                        stone: '#8B7D6B',
+                        'stone-dark': '#5C5347',
+                        'warm-black': '#2C2420',
+                        'warm-gray': '#6B6259',
+                    },
+                    fontFamily: {
+                        serif: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['DM Sans', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+                    },
+                }
+            }
         }
-      }
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <style>
+        :root {
+            --terracotta: #C4654A;
+            --terracotta-deep: #A84832;
+            --parchment: #F2EAD3;
+            --parchment-light: #F8F4E8;
+            --copper: #B87333;
+            --copper-light: #D4956B;
+            --stone: #8B7D6B;
+            --stone-dark: #5C5347;
+            --warm-black: #2C2420;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--parchment);
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(196, 101, 74, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(184, 115, 51, 0.05) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B87333' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Staggered reveal animations */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes revealFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes revealScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes drawLine {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        @keyframes revealLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .reveal { opacity: 0; }
+
+        .reveal-up {
+            animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .reveal-fade {
+            animation: revealFade 1s ease forwards;
+        }
+
+        .reveal-scale {
+            animation: revealScale 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .reveal-left {
+            animation: revealLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .line-draw {
+            transform-origin: left;
+            animation: drawLine 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.25s; }
+        .delay-3 { animation-delay: 0.4s; }
+        .delay-4 { animation-delay: 0.55s; }
+        .delay-5 { animation-delay: 0.7s; }
+        .delay-6 { animation-delay: 0.85s; }
+        .delay-7 { animation-delay: 1.0s; }
+        .delay-8 { animation-delay: 1.15s; }
+
+        /* Scroll-triggered reveals */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Texture overlay for sections */
+        .texture-overlay {
+            position: relative;
+        }
+
+        .texture-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Stamped logo effect */
+        .stamp {
+            position: relative;
+            display: inline-block;
+        }
+
+        .stamp::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--terracotta);
+            border-radius: 2px;
+        }
+
+        /* Portfolio card */
+        .portfolio-card {
+            background:
+                linear-gradient(135deg, rgba(248, 244, 232, 0.9) 0%, rgba(242, 234, 211, 0.95) 100%);
+            border: 1px solid rgba(184, 115, 51, 0.15);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(44, 36, 32, 0.1), 0 0 0 1px rgba(184, 115, 51, 0.2);
+        }
+
+        /* Divider */
+        .warm-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--copper-light), transparent);
+            opacity: 0.4;
+        }
+
+        /* Contact section */
+        .contact-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--terracotta);
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .contact-link:hover::after {
+            width: 100%;
+        }
+
+        /* Number markers */
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--copper);
+            opacity: 0.7;
+        }
+
+        /* Dark section */
+        .dark-section {
+            background-color: var(--warm-black);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(196, 101, 74, 0.08) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B87333' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Kanji watermark */
+        .kanji-watermark {
+            font-family: serif;
+            font-size: clamp(8rem, 20vw, 16rem);
+            color: rgba(184, 115, 51, 0.04);
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Philosophy grid items */
+        .philosophy-item {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(184, 115, 51, 0.15);
+        }
+
+        /* Selection color */
+        ::selection {
+            background: rgba(196, 101, 74, 0.2);
+            color: var(--warm-black);
+        }
+    </style>
+</head>
+<body class="font-sans text-warm-black antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 reveal reveal-fade delay-1">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="#" class="font-serif text-xl tracking-tight text-warm-black">Koubou Labs</a>
+            <div class="hidden sm:flex items-center gap-8">
+                <a href="#philosophy" class="text-sm text-warm-gray hover:text-terracotta transition-colors duration-300 font-light">Philosophy</a>
+                <a href="#work" class="text-sm text-warm-gray hover:text-terracotta transition-colors duration-300 font-light">Work</a>
+                <a href="#about" class="text-sm text-warm-gray hover:text-terracotta transition-colors duration-300 font-light">About</a>
+                <a href="#contact" class="text-sm text-terracotta-deep font-medium hover:text-terracotta transition-colors duration-300">Say hello</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <div class="kanji-watermark">工房</div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="reveal reveal-fade delay-2">
+                <span class="section-number uppercase tracking-widest">Singapore</span>
+            </div>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] mt-6 mb-8 reveal reveal-up delay-3">
+                We build products<br>
+                <span class="italic text-terracotta">people actually use</span>
+            </h1>
+            <div class="w-24 h-[2px] bg-copper mx-auto reveal line-draw delay-5"></div>
+            <p class="font-sans text-warm-gray text-lg sm:text-xl max-w-xl mx-auto mt-8 font-light leading-relaxed reveal reveal-up delay-5">
+                A small studio obsessed with craft.<br class="hidden sm:block">
+                Less software, more soul.
+            </p>
+            <div class="mt-12 reveal reveal-up delay-6">
+                <a href="#work" class="inline-flex items-center gap-3 text-sm font-medium text-terracotta-deep hover:text-terracotta transition-colors duration-300 group">
+                    <span>See our work</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 reveal reveal-fade delay-8">
+            <div class="w-px h-12 bg-gradient-to-b from-transparent to-copper opacity-40"></div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="relative py-24 sm:py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="scroll-reveal">
+                <span class="section-number uppercase tracking-widest">01 — Philosophy</span>
+                <h2 class="font-serif text-4xl sm:text-5xl mt-4 mb-4 leading-tight">
+                    The workshop<br><span class="italic text-terracotta">approach</span>
+                </h2>
+                <p class="text-warm-gray font-light text-lg max-w-2xl mb-16 leading-relaxed">
+                    Koubou means workshop in Japanese. We believe great products are crafted, not manufactured. Every detail is shaped by hand, tested by instinct, and refined until it feels inevitable.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-0">
+                <div class="philosophy-item scroll-reveal" style="transition-delay: 0.1s">
+                    <span class="font-display text-5xl text-copper opacity-30 block mb-4">01</span>
+                    <h3 class="font-serif text-xl mb-3">Fewer features,<br>more meaning</h3>
+                    <p class="text-warm-gray font-light text-sm leading-relaxed max-w-xs">
+                        We strip away everything that doesn't serve the person using it. What remains should feel like it was always meant to be there.
+                    </p>
+                </div>
+                <div class="philosophy-item scroll-reveal" style="transition-delay: 0.2s">
+                    <span class="font-display text-5xl text-copper opacity-30 block mb-4">02</span>
+                    <h3 class="font-serif text-xl mb-3">Built with<br>conviction</h3>
+                    <p class="text-warm-gray font-light text-sm leading-relaxed max-w-xs">
+                        We don't follow trends or chase metrics. We make opinionated decisions because products without a point of view have no soul.
+                    </p>
+                </div>
+                <div class="philosophy-item scroll-reveal" style="transition-delay: 0.3s">
+                    <span class="font-display text-5xl text-copper opacity-30 block mb-4">03</span>
+                    <h3 class="font-serif text-xl mb-3">Ship, observe,<br>refine</h3>
+                    <p class="text-warm-gray font-light text-sm leading-relaxed max-w-xs">
+                        Real craft means putting work into the world and watching how people live with it. Then making it better. Then doing it again.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="warm-divider max-w-5xl mx-auto"></div>
+
+    <!-- Portfolio / Work -->
+    <section id="work" class="relative py-24 sm:py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="scroll-reveal">
+                <span class="section-number uppercase tracking-widest">02 — Work</span>
+                <h2 class="font-serif text-4xl sm:text-5xl mt-4 mb-16 leading-tight">
+                    Things we've<br><span class="italic text-terracotta">made</span>
+                </h2>
+            </div>
+
+            <div class="portfolio-card rounded-2xl overflow-hidden scroll-reveal" style="transition-delay: 0.15s">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <!-- Project visual -->
+                    <div class="relative bg-gradient-to-br from-terracotta/10 via-copper/5 to-parchment p-10 sm:p-14 flex items-center justify-center min-h-[320px]">
+                        <!-- Abstract app representation -->
+                        <div class="relative">
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-white/60 backdrop-blur-sm shadow-lg border border-copper/10 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terracotta via-copper to-terracotta-deep"></div>
+                                <svg class="w-12 h-12 text-terracotta mb-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="font-serif text-2xl text-warm-black">tamago</span>
+                                <span class="text-xs text-warm-gray mt-1 font-light tracking-wider uppercase">Voice-guided cooking</span>
+                            </div>
+                            <!-- Floating accent elements -->
+                            <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-terracotta/10 border border-terracotta/20"></div>
+                            <div class="absolute -bottom-2 -left-4 w-6 h-6 rounded-full bg-copper/10 border border-copper/20"></div>
+                        </div>
+                    </div>
+
+                    <!-- Project details -->
+                    <div class="p-10 sm:p-14 flex flex-col justify-center">
+                        <span class="text-xs uppercase tracking-widest text-copper font-medium mb-4">Featured Project</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl mb-4">Tamago</h3>
+                        <p class="text-warm-gray font-light leading-relaxed mb-6">
+                            A voice-guided cooking companion that talks you through recipes hands-free. No scrolling, no tapping with messy fingers. Just your voice, the ingredients, and calm guidance when you need it.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-xs px-3 py-1.5 rounded-full border border-copper/20 text-stone font-light">iOS</span>
+                            <span class="text-xs px-3 py-1.5 rounded-full border border-copper/20 text-stone font-light">Voice UI</span>
+                            <span class="text-xs px-3 py-1.5 rounded-full border border-copper/20 text-stone font-light">Swift</span>
+                            <span class="text-xs px-3 py-1.5 rounded-full border border-copper/20 text-stone font-light">On-device AI</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-terracotta-deep">
+                            <span class="w-2 h-2 rounded-full bg-terracotta animate-pulse"></span>
+                            <span class="font-light">In development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More work hint -->
+            <div class="mt-16 text-center scroll-reveal" style="transition-delay: 0.3s">
+                <p class="font-display italic text-2xl text-stone/50">More coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="dark-section texture-overlay py-24 sm:py-32 px-6 relative">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="scroll-reveal">
+                <span class="section-number uppercase tracking-widest text-copper-light/60">03 — About</span>
+                <h2 class="font-serif text-4xl sm:text-5xl mt-4 mb-8 leading-tight text-parchment">
+                    A small team,<br><span class="italic text-copper-light">on purpose</span>
+                </h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-12 sm:gap-16">
+                <div class="scroll-reveal" style="transition-delay: 0.1s">
+                    <p class="text-parchment/70 font-light leading-relaxed text-lg">
+                        Koubou Labs is a product studio based in Singapore. We're a deliberately small, anonymous team — no faces on the website, no thought leadership, no conference talks.
+                    </p>
+                </div>
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <p class="text-parchment/70 font-light leading-relaxed text-lg">
+                        We'd rather the work speak. We take on a handful of projects at a time and give each one the attention it deserves. If you're looking for a factory, we're not it. If you want something made with care — let's talk.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 scroll-reveal" style="transition-delay: 0.3s">
+                <div>
+                    <span class="font-display text-4xl text-copper-light">SG</span>
+                    <p class="text-parchment/40 text-sm mt-1 font-light">Based in Singapore</p>
+                </div>
+                <div>
+                    <span class="font-display text-4xl text-copper-light">&lt;5</span>
+                    <p class="text-parchment/40 text-sm mt-1 font-light">People, on purpose</p>
+                </div>
+                <div>
+                    <span class="font-display text-4xl text-copper-light">1</span>
+                    <p class="text-parchment/40 text-sm mt-1 font-light">Project at a time</p>
+                </div>
+                <div>
+                    <span class="font-display text-4xl text-copper-light">&infin;</span>
+                    <p class="text-parchment/40 text-sm mt-1 font-light">Cups of kopi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="relative py-24 sm:py-32 px-6 overflow-hidden">
+        <div class="kanji-watermark" style="left: -2rem; right: auto; opacity: 0.03;">手紙</div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="scroll-reveal">
+                <span class="section-number uppercase tracking-widest">04 — Contact</span>
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl mt-4 mb-8 leading-tight">
+                    Got something<br><span class="italic text-terracotta">worth building?</span>
+                </h2>
+            </div>
+
+            <div class="scroll-reveal" style="transition-delay: 0.15s">
+                <p class="text-warm-gray font-light text-lg max-w-xl mb-10 leading-relaxed">
+                    We're selective about what we take on — not because we're precious, but because every project gets our full attention. If you think we might be a good fit, we'd love to hear from you.
+                </p>
+
+                <a href="mailto:hello@kouboulabs.com" class="contact-link inline-flex items-center gap-3 text-2xl sm:text-3xl font-serif text-terracotta-deep hover:text-terracotta transition-colors duration-300 group">
+                    <span>hello@kouboulabs.com</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-12 border-t border-copper/10">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-serif text-lg">Koubou Labs</span>
+                <span class="text-warm-gray/40 text-sm font-light">· Singapore</span>
+            </div>
+            <p class="text-warm-gray/50 text-sm font-light">
+                &copy; 2026 Koubou Labs. Built with care.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Trigger page-load animations
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const classes = ['reveal-up', 'reveal-fade', 'reveal-scale', 'reveal-left', 'line-draw'];
+                classes.forEach(cls => {
+                    if (el.classList.contains(cls) || el.querySelector('.' + cls)) return;
+                });
+            });
+        });
+
+        // Scroll-triggered reveals
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Smooth nav background on scroll
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY > 60) {
+                nav.style.backgroundColor = 'rgba(242, 234, 211, 0.92)';
+                nav.style.backdropFilter = 'blur(12px)';
+                nav.style.borderBottom = '1px solid rgba(184, 115, 51, 0.08)';
+            } else {
+                nav.style.backgroundColor = 'transparent';
+                nav.style.backdropFilter = 'none';
+                nav.style.borderBottom = '1px solid transparent';
+            }
+            lastScroll = scrollY;
+        }, { passive: true });
+    </script>
+</body>
 </html>

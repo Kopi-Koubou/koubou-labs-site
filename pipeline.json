@@ -5,9 +5,9 @@
   "repo": "Kopi-Koubou/koubou-labs-site",
   "projectPath": "/Users/devl/clawd/projects/koubou-labs-site",
   "createdAt": "2026-03-11T06:42:38.377Z",
-  "updatedAt": "2026-03-11T07:00:00.000Z",
+  "updatedAt": "2026-03-11T07:45:06.297Z",
   "status": "active",
-  "currentStage": "deploy",
+  "currentStage": "iterate",
   "stages": {
     "idea": {
       "status": "completed",
@@ -97,25 +97,26 @@
       "skipReason": "MVP - manual QA post-deploy"
     },
     "deploy": {
-      "status": "ready",
+      "status": "completed",
       "executor": "manual",
       "gate": "deploy-receipt.json exists",
       "output": "deploy-receipt.json",
-      "completedAt": null,
-      "instructions": "Deploy via Cloudflare Pages (see README.md)"
+      "completedAt": "2026-03-11T07:16:06.000Z",
+      "instructions": "Deploy via Cloudflare Pages (see README.md)",
+      "deployUrl": "https://koubou-labs-site.vercel.app"
     },
     "gtm": {
-      "status": "pending",
+      "status": "completed",
       "executor": "cli-agent",
       "gate": "gtm-plan.md and gtm-execution-log.md exist",
       "output": [
         "gtm-plan.md",
         "gtm-execution-log.md"
       ],
-      "completedAt": null
+      "completedAt": "2026-03-11T07:45:06.297Z"
     },
     "iterate": {
-      "status": "pending",
+      "status": "active",
       "executor": "kato",
       "gate": "next feature selected from ROADMAP.md",
       "output": "new project idea.md",
