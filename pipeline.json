@@ -1,0 +1,144 @@
+{
+  "id": "koubou-labs-site",
+  "name": "koubou-labs-site",
+  "description": "Company website for kouboulabs.com - minimal cost, high impact",
+  "repo": "",
+  "projectPath": "/Users/devl/clawd/projects/koubou-labs-site",
+  "createdAt": "2026-03-11T06:42:38.377Z",
+  "updatedAt": "2026-03-11T06:45:11.700Z",
+  "status": "active",
+  "currentStage": "prd",
+  "stages": {
+    "idea": {
+      "status": "completed",
+      "gate": "idea.md exists in project dir",
+      "output": "idea.md",
+      "completedAt": "2026-03-11T06:45:11.699Z"
+    },
+    "prd": {
+      "status": "active",
+      "executor": "claude-code",
+      "gate": "prd.md exists in project dir",
+      "output": "prd.md",
+      "completedAt": null,
+      "cli": "claude --print --dangerously-skip-permissions --model opus"
+    },
+    "prd_review": {
+      "status": "pending",
+      "executor": "kato-yuki-pingpong",
+      "gate": "decisions/prd-review.md exists",
+      "output": "decisions/prd-review.md",
+      "completedAt": null,
+      "maxRounds": 5
+    },
+    "design_spec": {
+      "status": "pending",
+      "executor": "claude-code",
+      "gate": "design-spec.md exists in project dir",
+      "output": "design-spec.md",
+      "completedAt": null,
+      "cli": "claude --print --dangerously-skip-permissions --model opus"
+    },
+    "taste_review": {
+      "status": "pending",
+      "executor": "kato",
+      "gate": "decisions/taste-review.md exists",
+      "output": "decisions/taste-review.md",
+      "completedAt": null
+    },
+    "tech_spec": {
+      "status": "pending",
+      "executor": "claude-code",
+      "gate": "tech-spec.md exists in project dir",
+      "output": [
+        "tech-spec.md",
+        "api-contract.json"
+      ],
+      "completedAt": null,
+      "cli": "claude --print --dangerously-skip-permissions --model opus"
+    },
+    "spec_review": {
+      "status": "pending",
+      "executor": "kato-yuki-pingpong",
+      "gate": "decisions/spec-review.md exists",
+      "output": "decisions/spec-review.md",
+      "completedAt": null,
+      "maxRounds": 5
+    },
+    "implementation": {
+      "status": "pending",
+      "executor": "cli-agents",
+      "gate": "all tasks committed and merged to main",
+      "output": "code on branches",
+      "completedAt": null,
+      "tasks": [],
+      "cliPriority": [
+        "codex",
+        "claude",
+        "kimi"
+      ]
+    },
+    "code_audit": {
+      "status": "pending",
+      "executor": "cli-agent",
+      "gate": "audit-results.json exists with criticalCount === 0 && highCount === 0",
+      "output": "audit-results.json",
+      "completedAt": null
+    },
+    "qa": {
+      "status": "pending",
+      "executor": "auto-qa",
+      "gate": "qa-results.json exists with allPassed === true",
+      "output": "qa-results.json",
+      "completedAt": null
+    },
+    "deploy": {
+      "status": "pending",
+      "executor": "smart-deploy",
+      "gate": "deploy-receipt.json exists",
+      "output": "deploy-receipt.json",
+      "completedAt": null
+    },
+    "gtm": {
+      "status": "pending",
+      "executor": "cli-agent",
+      "gate": "gtm-plan.md and gtm-execution-log.md exist",
+      "output": [
+        "gtm-plan.md",
+        "gtm-execution-log.md"
+      ],
+      "completedAt": null
+    },
+    "iterate": {
+      "status": "pending",
+      "executor": "kato",
+      "gate": "next feature selected from ROADMAP.md",
+      "output": "new project idea.md",
+      "completedAt": null
+    }
+  },
+  "stageOrder": [
+    "idea",
+    "prd",
+    "prd_review",
+    "design_spec",
+    "taste_review",
+    "tech_spec",
+    "spec_review",
+    "implementation",
+    "code_audit",
+    "qa",
+    "deploy",
+    "gtm",
+    "iterate"
+  ],
+  "archival": {
+    "obsidianPath": "/Users/devl/Second Brain/10 - Projects/",
+    "archivedDocs": []
+  },
+  "metadata": {
+    "createdAt": "2026-03-11T06:42:38.377Z",
+    "source": "factory-new.js",
+    "brief": "Company website for kouboulabs.com - minimal cost, high impact"
+  }
+}
