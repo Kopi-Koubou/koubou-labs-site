@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-stone-50: #FAFAF9;
+  --color-stone-100: #F5F5F4;
+  --color-stone-200: #E7E5E4;
+  --color-stone-300: #D6D3D1;
+  --color-stone-500: #57534E;
+  --color-stone-900: #1C1917;
+  --color-orange-50: #FFF7ED;
+  --color-orange-600: #EA580C;
+  --color-orange-700: #C2410C;
+  --color-green-100: #DCFCE7;
+  --color-green-800: #166534;
+  --color-amber-100: #FEF3C7;
+  --color-amber-800: #92400E;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-stone-50);
+  color: var(--color-stone-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in-up-delayed {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in-up-delayed {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
